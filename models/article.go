@@ -1,8 +1,9 @@
 package models
 
 import (
-	"github.com/jinzhu/gorm"
 	"time"
+
+	"github.com/jinzhu/gorm"
 )
 
 type Article struct {
@@ -72,7 +73,12 @@ func AddArticle(data map[string]interface{}) bool {
 }
 
 func DeleteArticle(id int) bool {
-	db.Where("id=?",id).Delete(Article{})
+	db.Where("id=?", id).Delete(Article{})
 	return true
 }
 
+func CleanAllArticel() bool {
+	//硬删除要使用 Unscoped()，这是 GORM 的约定
+	db.Unscoped().Where("deleted_on != ?", 0).Delete(&Article{})
+	return true
+}

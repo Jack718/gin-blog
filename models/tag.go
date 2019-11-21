@@ -1,8 +1,9 @@
 package models
 
 import (
-	"github.com/jinzhu/gorm"
 	"time"
+
+	"github.com/jinzhu/gorm"
 )
 
 type Tag struct {
@@ -71,8 +72,12 @@ func DeleteTag(id int) bool {
 	return true
 }
 
-func EditTag(id int ,data interface{}) bool {
-	db.Model(&Tag{}).Where("id=?",id).Updates(data)
+func EditTag(id int, data interface{}) bool {
+	db.Model(&Tag{}).Where("id=?", id).Updates(data)
 	return true
 }
 
+func CleanAllTag() bool {
+	db.Unscoped().Where("deleted_on !=?", 0).Delete(&Tag{})
+	return true
+}
