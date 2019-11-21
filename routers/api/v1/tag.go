@@ -64,9 +64,11 @@ func AddTags(c *gin.Context) {
 			code = e.SUCCESS
 			models.AddTag(name, state, createdBy)
 		} else {
-			for _, err := range valid.Errors {
-				logging.Info(err.Key, err.Message)
-			}
+			code = e.ERROR_EXIST_TAG
+		}
+	} else {
+		for _, err := range valid.Errors {
+			logging.Info(err.Key, err.Message)
 		}
 	}
 	c.JSON(http.StatusOK, gin.H{
@@ -113,6 +115,7 @@ func EditTag(c *gin.Context) {
 			if state != -1 {
 				data["state"] = state
 			}
+			models.EditTag(id, data)
 		} else {
 			code = e.ERROR_NOT_EXIST_TAG
 		}
