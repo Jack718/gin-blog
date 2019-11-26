@@ -4,8 +4,10 @@ import (
 	_ "gin-blog/docs"
 	"gin-blog/middleware/jwt"
 	"gin-blog/pkg/setting"
+	"gin-blog/pkg/upload"
 	"gin-blog/routers/api"
 	v1 "gin-blog/routers/api/v1"
+	"net/http"
 
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
@@ -21,6 +23,8 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Recovery())
 
 	gin.SetMode(setting.ServerSetting.RunMode)
+
+	r.StaticFS("/upload/images", http.Dir(upload.GetImageFullPath()))
 
 	r.GET("/auth", api.GetAuth)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))

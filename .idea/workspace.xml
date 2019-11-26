@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d60291b-d91a-4c32-a471-60a804760164" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/e/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/e/code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/e/msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/e/msg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/file/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/file/file.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
