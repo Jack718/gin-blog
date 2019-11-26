@@ -24,6 +24,7 @@ func InitRouter() *gin.Engine {
 
 	r.GET("/auth", api.GetAuth)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	r.POST("/upload", api.UploadImage)
 	//r.GET("/test", func(c *gin.Context) {
 	//	c.JSON(200, gin.H{
 	//		"message": "test",

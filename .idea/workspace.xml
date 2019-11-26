@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6d60291b-d91a-4c32-a471-60a804760164" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/app.ini" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/logging/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logging/log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/logs/log20191114.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/logs/log20191119.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/logs/log20191120.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/logs/log20191121.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/logs/log20191126." beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/e/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/e/code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/e/msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/e/msg.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/file/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/file/file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
