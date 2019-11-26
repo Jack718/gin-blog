@@ -13,7 +13,7 @@ func main() {
 	setting.Setup()
 	models.Setup()
 	logging.Setup()
-
+	logging.Info("setting / models / logging up ")
 	router := routers.InitRouter()
 
 	s := &http.Server{

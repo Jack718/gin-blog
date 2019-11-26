@@ -31,10 +31,12 @@ func Setup() {
 	var err error
 	filePath := getLogFilePath()
 	fileName := getLogFileName()
+	fmt.Print(filePath, fileName)
 	F, err = openLogFile(fileName, filePath)
 	if err != nil {
 		log.Fatalln(err)
 	}
+
 	//创建一个新的日志记录器。out 定义要写入日志数据的IO句柄，prefix定义每个生成日志行的开头。flag定义了日志记录属性
 	//LstdFlags日志记录的格式属性之一，其余的选项如下
 	//const (
