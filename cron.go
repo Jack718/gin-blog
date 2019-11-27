@@ -20,7 +20,7 @@ func main() {
 
 	_ = c.AddFunc("* * * * * *", func() {
 		log.Println("Run models.CleanArticle...")
-		models.CleanAllArticel()
+		models.CleanAllArticle()
 	})
 	//在当前执行的程序中启动 Cron 调度程序。其实这里的主体是 goroutine + for + select + timer 的调度控制哦
 	c.Start()

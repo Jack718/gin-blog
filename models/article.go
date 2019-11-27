@@ -21,23 +21,26 @@ type Article struct {
 }
 
 func (article *Article) BeforeCreate(scope *gorm.Scope) error {
-	scope.SetColumn("CreatedOn", time.Now().Unix())
+	_ = scope.SetColumn("CreatedOn", time.Now().Unix())
 	return nil
 }
 
 func (article *Article) BeforeUpdate(scope *gorm.Scope) error {
-	scope.SetColumn("ModifiedOn", time.Now().Unix())
+	_ = scope.SetColumn("ModifiedOn", time.Now().Unix())
 	return nil
 }
 
-func ExistArticleByID(id int) bool {
+func ExistArticleByID(id int) (bool, error) {
 	var article Article
-	db.Select("id").Where("id=?", id).First(&article)
+	err := db.Select("id").Where("id=? AND deleted_on=?", id, 0).First(&article).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return false, err
+	}
 
 	if article.ID > 0 {
-		return true
+		return true, nil
 	}
-	return false
+	return false, nil
 }
 
 func GetArticleTotal(maps interface{}) (count int) {
@@ -50,10 +53,13 @@ func GetArticles(pageNum int, pageSize int, maps interface{}) (articles []Articl
 	return
 }
 
-func GetArticle(id int) (article Article) {
-	db.Where("id=?", id).First(&article)
-	db.Model(&article).Related(&article.Tag)
-	return
+func GetArticle(id int) (*Article, error) {
+	var article Article
+	err := db.Where("id=? AND deleted_on=?", id, 0).First(&article).Related(&article.Tag).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return nil, err
+	}
+	return &article, nil
 }
 
 func EditArticle(id int, data interface{}) bool {
@@ -79,7 +85,7 @@ func DeleteArticle(id int) bool {
 	return true
 }
 
-func CleanAllArticel() bool {
+func CleanAllArticle() bool {
 	//硬删除要使用 Unscoped()，这是 GORM 的约定
 	db.Unscoped().Where("deleted_on != ?", 0).Delete(&Article{})
 	return true
