@@ -2,6 +2,7 @@ package tag_service
 
 import (
 	"encoding/json"
+	"fmt"
 	"gin-blog/models"
 	"gin-blog/pkg/export"
 	"gin-blog/pkg/file"
@@ -89,6 +90,7 @@ func (t *Tag) GetAll() ([]models.Tag, error) {
 
 func (t *Tag) Export() (string, error) {
 	tags, err := t.GetAll()
+	fmt.Println(tags)
 	logging.Debug(tags)
 	if err != nil {
 		return "", err

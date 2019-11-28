@@ -3,6 +3,7 @@ package routers
 import (
 	_ "gin-blog/docs"
 	"gin-blog/middleware/jwt"
+	"gin-blog/pkg/qrcode"
 	"gin-blog/pkg/setting"
 	"gin-blog/pkg/upload"
 	"gin-blog/routers/api"
@@ -25,6 +26,7 @@ func InitRouter() *gin.Engine {
 	gin.SetMode(setting.ServerSetting.RunMode)
 
 	r.StaticFS("/upload/images", http.Dir(upload.GetImageFullPath()))
+	r.StaticFS("/qrcode", http.Dir(qrcode.GetQrCodeFullPath()))
 
 	r.GET("/auth", api.GetAuth)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
@@ -60,6 +62,8 @@ func InitRouter() *gin.Engine {
 		apiv1.PUT("articles/:id", v1.EditArticle)
 		//删除指定文章
 		apiv1.DELETE("articles/:id", v1.DeleteArticle)
+		//二维码
+		apiv1.POST("/articles/poster/generate", v1.GenerateArticlePoster)
 	}
 	return r
 }
