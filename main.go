@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"gin-blog/models"
+	"gin-blog/pkg/gredis"
 	"gin-blog/pkg/logging"
 	"gin-blog/pkg/setting"
 	"gin-blog/routers"
@@ -13,6 +14,7 @@ func main() {
 	setting.Setup()
 	models.Setup()
 	logging.Setup()
+	_ = gredis.Setup()
 	logging.Info("setting / models / logging up ")
 	router := routers.InitRouter()
 

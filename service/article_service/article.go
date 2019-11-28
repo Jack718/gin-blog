@@ -23,6 +23,34 @@ type Article struct {
 	PageSize int
 }
 
+func (a *Article) Add() error {
+	article := map[string]interface{}{
+		"tag_id":          a.TagID,
+		"title":           a.Title,
+		"desc":            a.Desc,
+		"content":         a.Content,
+		"created_by":      a.CreatedBy,
+		"cover_image_url": a.CoverImageUrl,
+		"state":           a.State,
+	}
+	if err := models.AddArticle(article); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *Article) Edit() error {
+	return models.EditArticle(a.ID, map[string]interface{}{
+		"tag_id":          a.TagID,
+		"title":           a.Title,
+		"desc":            a.Desc,
+		"content":         a.Content,
+		"cover_image_url": a.CoverImageUrl,
+		"state":           a.State,
+		"modified_by":     a.ModifiedBy,
+	})
+}
+
 func (a *Article) Get() (*models.Article, error) {
 	var cacheArticle *models.Article
 
@@ -48,4 +76,8 @@ func (a *Article) Get() (*models.Article, error) {
 
 func (a *Article) ExistByID() (bool, error) {
 	return models.ExistArticleByID(a.ID)
+}
+
+func (a *Article) Delete() error {
+	return models.DeleteArticle(a.ID)
 }
