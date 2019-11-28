@@ -36,6 +36,10 @@ github.com/go-openapi/spec
 github.com/go-openapi/swag
 # github.com/go-sql-driver/mysql v1.4.1
 github.com/go-sql-driver/mysql
+# github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
+github.com/golang/freetype
+github.com/golang/freetype/raster
+github.com/golang/freetype/truetype
 # github.com/golang/protobuf v1.3.1
 github.com/golang/protobuf/proto
 # github.com/gomodule/redigo v2.0.0+incompatible
@@ -73,6 +77,9 @@ github.com/tealeg/xlsx
 github.com/ugorji/go/codec
 # github.com/unknwon/com v1.0.1
 github.com/unknwon/com
+# golang.org/x/image v0.0.0-20191009234506-e7c1f5e7dbb8
+golang.org/x/image/font
+golang.org/x/image/math/fixed
 # golang.org/x/net v0.0.0-20190611141213-3f473d35a33a
 golang.org/x/net/context
 golang.org/x/net/idna
