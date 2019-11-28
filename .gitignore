@@ -1,2 +1,5 @@
-/runtime
-/.idea
+.idea/*
+
+runtime/*
+!runtime/qrcode/bg.jpg
+!runtime/fonts
